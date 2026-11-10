@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorAddCar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C0D14">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#141622">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAddCar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Add Mercedes to Fleet"
+            app:titleTextColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Form Container -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="84dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#141622"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#2E344D"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.15"
+                        android:text="FLEET MANAGEMENT"
+                        android:textColor="#D4AF37"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Publish New Vehicle"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Model -->
+                    <EditText
+                        android:id="@+id/etAdminCarModel"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Model (e.g. Mercedes-AMG G63)"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Category -->
+                    <EditText
+                        android:id="@+id/etAdminCarCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Category (e.g. SUV, Coupe, Sedan)"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Price Per Day -->
+                    <EditText
+                        android:id="@+id/etAdminPricePerDay"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Price Per Day in KES (e.g. 35000)"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Price Per Hour -->
+                    <EditText
+                        android:id="@+id/etAdminPricePerHour"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Price Per Hour in KES (e.g. 4000)"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Location -->
+                    <EditText
+                        android:id="@+id/etAdminCarLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Location / City (e.g. Nairobi)"
+                        android:inputType="textCapWords"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Image URL -->
+                    <EditText
+                        android:id="@+id/etAdminCarImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Image URL (optional)"
+                        android:inputType="textUri"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Loading Indicator -->
+                    <ProgressBar
+                        android:id="@+id/pbAddCarLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:indeterminateTint="#D4AF37"
+                        android:visibility="gone" />
+
+                    <!-- Submit Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSaveNewCar"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Save &amp; Publish Car"
+                        android:textAllCaps="false"
+                        android:textColor="#0C0D14"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#FFFFFF"
+                        app:cornerRadius="16dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FIXED BOTTOM NAVIGATION BAR -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationAddCar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#141622"
+        app:elevation="12dp"
+        app:itemIconTint="#D4AF37"
+        app:itemTextColor="#D4AF37"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

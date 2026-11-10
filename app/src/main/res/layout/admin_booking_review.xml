@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    app:cardBackgroundColor="#161822"
+    app:cardCornerRadius="16dp"
+    app:strokeColor="#2E3245"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAdminBookingCar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mercedes-AMG GT"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAdminBookingStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="3dp"
+                android:text="PENDING APPROVAL"
+                android:textColor="#D4AF37"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Customer Full Contact Details -->
+        <TextView
+            android:id="@+id/tvAdminCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Customer: Moses Kilonzo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAdminCustomerEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Email: moses@gmail.com"
+            android:textColor="#8E92A4"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvAdminCustomerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Phone: +254712345678"
+            android:textColor="#4CAF50"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAdminBookingPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Total: KES 75,000 (3 Days • M-PESA)"
+            android:textColor="#D4AF37"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Approve / Decline Actions -->
+        <LinearLayout
+            android:id="@+id/llAdminApprovalActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdminApproveBooking"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Approve"
+                android:textAllCaps="false"
+                android:textColor="#0C0D14"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:backgroundTint="#4CAF50"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdminDeclineBooking"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Decline"
+                android:textAllCaps="false"
+                android:textColor="#E53935"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp"
+                app:strokeColor="#E53935" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

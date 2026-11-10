@@ -1,0 +1,8 @@
+<resources>
+    <!-- Removes the light pill and gives a subtle gold glow -->
+    <style name="App.Custom.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#26D4AF37</item>
+        <item name="android:width">44dp</item>
+        <item name="android:height">32dp</item>
+    </style>
+</resources>

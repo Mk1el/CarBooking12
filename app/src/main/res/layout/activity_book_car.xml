@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C0D14">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#141622">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBookCar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Complete Vehicle Reservation"
+            app:titleTextColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="18dp">
+
+            <!-- VEHICLE HERO IMAGE & DETAILS CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#141622"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#2E344D"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Car Image carried from selection -->
+                    <ImageView
+                        android:id="@+id/ivBookCarImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="#1E2235"
+                        android:contentDescription="Vehicle Image"
+                        android:scaleType="centerCrop" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.15"
+                            android:text="SELECTED VEHICLE"
+                            android:textColor="#D4AF37"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBookCarModel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Vehicle Model"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBookCarRateInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Daily: KES 0 | Hourly: KES 0"
+                            android:textColor="#8E95AA"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- RENTAL CONFIGURATION FORM -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#141622"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#2E344D"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <!-- Rental Duration Type -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.08"
+                        android:text="RENTAL DURATION TYPE"
+                        android:textColor="#8E95AA"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgRentalType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_input_field"
+                        android:minHeight="48dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <RadioButton
+                            android:id="@+id/rbDailyRental"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:minHeight="40dp"
+                            android:paddingVertical="8dp"
+                            android:text="Daily Rate"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/rbHourlyRental"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:minHeight="40dp"
+                            android:paddingVertical="8dp"
+                            android:text="Hourly Rate"
+                            android:textColor="#8E95AA"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </RadioGroup>
+
+                    <!-- Duration Input -->
+                    <EditText
+                        android:id="@+id/etRentalDuration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Enter Duration (Days or Hours)"
+                        android:inputType="number"
+                        android:minHeight="50dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="12dp"
+                        android:text="1"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#5A6178"
+                        android:textSize="14sp" />
+
+                    <!-- Payment Method Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:letterSpacing="0.08"
+                        android:text="PAYMENT METHOD"
+                        android:textColor="#8E95AA"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgPaymentMethods"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp">
+
+                        <RadioButton
+                            android:id="@+id/rbMpesa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:minHeight="46dp"
+                            android:text="M-PESA (Instant STK Push)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="46dp"
+                            android:text="Credit / Debit Card (Stripe)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="46dp"
+                            android:text="Pay on Vehicle Pickup"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+
+                    <!-- Phone Input for Mpesa -->
+                    <EditText
+                        android:id="@+id/etPaymentAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="M-Pesa Phone (e.g. 0712345678)"
+                        android:inputType="phone"
+                        android:minHeight="50dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="12dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#5A6178"
+                        android:textSize="14sp" />
+
+                    <!-- Total Amount Display Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardBackgroundColor="#1A1D2D"
+                        app:cardCornerRadius="14dp"
+                        app:strokeColor="#2E344D"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="14dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Calculated Total:"
+                                android:textColor="#B0B5C6"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvBookTotalPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="KES 0.00"
+                                android:textColor="#D4AF37"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Loading Progress -->
+                    <ProgressBar
+                        android:id="@+id/pbBookingLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="14dp"
+                        android:indeterminateTint="#D4AF37"
+                        android:visibility="gone" />
+
+                    <!-- Submit Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmitBooking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:minHeight="54dp"
+                        android:text="Confirm &amp; Request Approval"
+                        android:textAllCaps="false"
+                        android:textColor="#0C0D14"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#FFFFFF"
+                        app:cornerRadius="14dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <RatingBar
+        android:id="@+id/rbVehicleRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1" />
+
+    <EditText
+        android:id="@+id/etReviewComment"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="top|start"
+        android:hint="How was your driving experience?"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#8E95AA" />
+</LinearLayout>

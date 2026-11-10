@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C0D14">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#141622">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarAddUser"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Provision New Account"
+            app:titleTextColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable Form Container -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="70dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#141622"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#2E344D"
+                app:strokeWidth="1.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.15"
+                        android:text="ACCOUNT CONFIGURATION"
+                        android:textColor="#D4AF37"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Create Verified Profile"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Role Selector -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:letterSpacing="0.1"
+                        android:text="SELECT ROLE"
+                        android:textColor="#9EA4B8"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgUserRole"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_input_field"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <RadioButton
+                            android:id="@+id/rbRoleCustomer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:text="Customer"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/rbRoleAdmin"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="Fleet Admin"
+                            android:textColor="#9EA4B8"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </RadioGroup>
+
+                    <!-- Full Name -->
+                    <EditText
+                        android:id="@+id/etNewUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Full Name"
+                        android:inputType="textPersonName"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Email Address -->
+                    <EditText
+                        android:id="@+id/etNewUserEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Email Address"
+                        android:inputType="textEmailAddress"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Phone Number -->
+                    <EditText
+                        android:id="@+id/etNewUserPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Phone Number (e.g. +254712345678)"
+                        android:inputType="phone"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Location / City -->
+                    <EditText
+                        android:id="@+id/etNewUserLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="City / Location (e.g. Nairobi)"
+                        android:inputType="text"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Temporary Password -->
+                    <EditText
+                        android:id="@+id/etNewUserPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_input_field"
+                        android:hint="Temporary Password (min 6 chars)"
+                        android:inputType="textPassword"
+                        android:paddingHorizontal="18dp"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#7B829A"
+                        android:textSize="15sp" />
+
+                    <!-- Loading Indicator -->
+                    <ProgressBar
+                        android:id="@+id/pbAddUserLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:indeterminateTint="#D4AF37"
+                        android:visibility="gone" />
+
+                    <!-- Submit Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmitNewUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Save User to Database"
+                        android:textAllCaps="false"
+                        android:textColor="#0C0D14"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#FFFFFF"
+                        app:cornerRadius="16dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- BOTTOM NAVIGATION LAYER -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationAddUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#141622"
+        app:itemIconTint="#D4AF37"
+        app:itemTextColor="#D4AF37"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

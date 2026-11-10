@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0C0D14"
+    tools:context=".AdminChatsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdminChats"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#151827"
+        android:elevation="4dp"
+        app:title="Customer Conversations"
+        app:titleTextColor="#FFFFFF"
+        app:subtitleTextColor="#D4AF37"
+        app:navigationIconTint="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvNoActiveChats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="No active customer conversations"
+        android:textColor="#9CA3AF"
+        android:textSize="16sp"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAdminChatThreads"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        android:overScrollMode="never"
+        android:visibility="gone" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationAdminChats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#151827"
+        android:elevation="8dp"
+        app:itemIconTint="#D4AF37"
+        app:itemTextColor="#FFFFFF"
+        app:labelVisibilityMode="labeled" />
+
+</LinearLayout>

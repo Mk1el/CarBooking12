@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="14dp"
+    android:layout_marginVertical="10dp"
+    app:cardBackgroundColor="#141622"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeColor="#2E344D"
+    app:strokeWidth="1.5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Vehicle Image & Star Badge -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="185dp">
+
+            <ImageView
+                android:id="@+id/ivCarThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#1E2235"
+                android:contentDescription="Car Image"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tvCarRatingBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_badge"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="★ 5.0"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Vehicle Details (No Overlapping Text) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvCarModelTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCarSpecs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#8E95AA"
+                android:textSize="13sp" />
+
+            <!-- Price Breakdown -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvPriceDaily"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#D4AF37"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPriceHourly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8E95AA"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Actions: Rate & Reserve (Clearly Visible) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRateCar"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="★ Rate"
+                    android:textAllCaps="false"
+                    android:textColor="#D4AF37"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#D4AF37" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBookCar"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1.4"
+                    android:text="Reserve Now"
+                    android:textAllCaps="false"
+                    android:textColor="#0C0D14"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="10dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0C0D14"
+    tools:context=".ChatActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarChat"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#151827"
+        android:elevation="4dp"
+        app:title="Customer Support"
+        app:titleTextColor="#FFFFFF"
+        app:subtitleTextColor="#D4AF37"
+        app:navigationIconTint="#FFFFFF" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="12dp"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_chat_message" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="#151827">
+
+        <EditText
+            android:id="@+id/etChatMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:hint="Type your message..."
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="4"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9CA3AF"
+            android:backgroundTint="#D4AF37"
+            android:importantForAutofill="no" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:text="Send"
+            android:textColor="#0C0D14"
+            app:backgroundTint="#D4AF37"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_send"
+            app:iconTint="#0C0D14" />
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#151827"
+        android:elevation="8dp"
+        app:itemIconTint="#D4AF37"
+        app:itemTextColor="#FFFFFF"
+        app:labelVisibilityMode="labeled" />
+
+</LinearLayout>

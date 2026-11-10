@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C0D14">
+
+    <FrameLayout
+        android:id="@+id/containerAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationAdmin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 1. DASHBOARD & STATS TAB -->
+        <ScrollView
+            android:id="@+id/layoutAdminHomeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge"
+                    android:text="ADMIN FLEET CONTROL &amp; REVENUE"
+                    android:textColor="#D4AF37"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.15"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:textStyle="bold" />
+
+                <!-- Revenue Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#161822"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2E3245"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL REVENUE EARNED"
+                            android:textColor="#8E92A4"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvAdminTotalRevenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="KES 0"
+                            android:textColor="#D4AF37"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 7-Day Revenue Graph -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:cardBackgroundColor="#161822"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="#2E3245"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DAILY REVENUE ANALYTICS"
+                            android:textColor="#D4AF37"
+                            android:textSize="11sp"
+                            android:letterSpacing="0.1"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPeakDaySummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Analyzing daily booking patterns..."
+                            android:textColor="#8E92A4"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:id="@+id/llBarChartContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="16dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barMon" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Mon" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barTue" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Tue" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barWed" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Wed" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barThu" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Thu" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barFri" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Fri" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barSat" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Sat" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="bottom|center_horizontal" android:orientation="vertical">
+                                <View android:id="@+id/barSun" android:layout_width="16dp" android:layout_height="20dp" android:background="@drawable/bg_badge" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Sun" android:textColor="#8E92A4" android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Stats Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        app:cardBackgroundColor="#161822"
+                        app:cardCornerRadius="14dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TOTAL USERS"
+                                android:textColor="#8E92A4"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvAdminTotalUsers"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="0"
+                                android:textColor="#FFFFFF"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        app:cardBackgroundColor="#161822"
+                        app:cardCornerRadius="14dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ACTIVE BOOKINGS"
+                                android:textColor="#8E92A4"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvAdminActiveBookings"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="0"
+                                android:textColor="#D4AF37"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Actions -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdminAddNewCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="16dp"
+                    android:text="➕ Add New Mercedes to Fleet"
+                    android:textAllCaps="false"
+                    android:textColor="#0C0D14"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdminAddNewUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:text="👤 Add &amp; Verify New Customer / Admin"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:backgroundTint="#2E3245"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAdminReleaseFleet"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="🔄 Release / Free All Booked Cars"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#1D202D"
+                    app:cornerRadius="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Live User Directory (Hold to Delete)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAdminUsersList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 2. DEDICATED BOOKING REVIEWS TAB (Connected to bottom nav) -->
+        <LinearLayout
+            android:id="@+id/layoutAdminBookingsReviewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FLEET MANAGEMENT"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:letterSpacing="0.1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Booking Reviews"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAdminBookingReviews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="24dp" />
+        </LinearLayout>
+
+        <!-- 3. PROFILE TAB -->
+        <ScrollView
+            android:id="@+id/layoutAdminProfileView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admin Profile"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="ADMIN NAME"
+                    android:textColor="#D4AF37"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etAdminName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="EMAIL (LOCKED)"
+                    android:textColor="#8E92A4"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etAdminEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:alpha="0.6"
+                    android:background="@drawable/bg_input_field"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="#8E92A4" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUpdateAdminProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Save Admin Profile"
+                    android:textColor="#0C0D14"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- Bottom Navigation with Customized Indicator Style -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationAdmin"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="#161822"
+        app:itemActiveIndicatorStyle="@style/App.Custom.NavIndicator"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

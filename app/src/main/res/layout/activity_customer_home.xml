@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0C0D14">
+
+    <!-- Scrollable Content Container -->
+    <FrameLayout
+        android:id="@+id/customerContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationCustomer">
+
+        <!-- 1. HOME TAB (Header, Filters & Vehicle Catalog) -->
+        <LinearLayout
+            android:id="@+id/layoutHomeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- LUXURY BRAND HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#141622"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.15"
+                    android:text="MERCEDES-BENZ FLEET"
+                    android:textColor="#D4AF37"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWelcomeCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Welcome to Luxury Fleet"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ACTIVE TRIP ALERT BANNER (Visible during rental) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardActiveRentalContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#1A1D2E"
+                app:cardCornerRadius="16dp"
+                app:strokeColor="#D4AF37"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:id="@+id/tvActiveCarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTimeRemainingCountdown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#D4AF37"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvOverdueChargeAlert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#E53935"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCustomerReturnCar"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Return Vehicle (Finish Trip)"
+                        app:backgroundTint="#D4AF37"
+                        android:textColor="#0C0D14"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- HORIZONTAL CATEGORY FILTER CHIPS -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="14dp"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipAll"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="All Fleet"
+                        android:textColor="#FFFFFF"
+                        app:chipBackgroundColor="#24283B" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSuv"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SUV"
+                        android:textColor="#FFFFFF"
+                        app:chipBackgroundColor="#24283B" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSedan"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sedan"
+                        android:textColor="#FFFFFF"
+                        app:chipBackgroundColor="#24283B" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCoupe"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Coupe"
+                        android:textColor="#FFFFFF"
+                        app:chipBackgroundColor="#24283B" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- Vehicles RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCustomerCars"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="6dp"
+                android:paddingBottom="20dp" />
+        </LinearLayout>
+
+        <!-- 2. MY BOOKINGS TAB -->
+        <LinearLayout
+            android:id="@+id/layoutMyBookingsView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#141622"
+                android:padding="20dp"
+                android:text="My Reservation History"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMyBookingsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="14dp" />
+        </LinearLayout>
+
+        <!-- 3. PROFILE TAB -->
+        <ScrollView
+            android:id="@+id/layoutProfileView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customer Account"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etCustomerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Full Name"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#8E95AA" />
+
+                <EditText
+                    android:id="@+id/etCustomerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_input_field"
+                    android:enabled="false"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#8E95AA" />
+
+                <EditText
+                    android:id="@+id/etCustomerCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="City (e.g. Nairobi)"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#8E95AA" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUpdateCustomerProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Save Profile"
+                    android:textColor="#0C0D14"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- FIXED BOTTOM NAVIGATION BAR -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#141622"
+        app:elevation="16dp"
+        app:itemIconTint="#D4AF37"
+        app:itemTextColor="#D4AF37"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_customer_bottom" />
+
+</RelativeLayout>
