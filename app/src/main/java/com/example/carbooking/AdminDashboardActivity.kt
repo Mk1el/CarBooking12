@@ -66,9 +66,6 @@ class AdminDashboardActivity : BaseActivity() {
         val etAdminEmail = findViewById<EditText>(R.id.etAdminEmail)
         val btnSaveAdmin = findViewById<MaterialButton>(R.id.btnUpdateAdminProfile)
 
-        // =========================================================================
-        // PADDING FIX: PREVENTS BOTTOM NAVIGATION OVERLAP
-        // =========================================================================
         bottomNav.bringToFront()
         bottomNav.elevation = 16f
 
@@ -199,9 +196,6 @@ class AdminDashboardActivity : BaseActivity() {
                 }
             }
 
-        // =========================================================================
-        // 6. LIVE CUSTOMER REVIEWS LISTENER (Connects to 'reviews' in Firestore)
-        // =========================================================================
         db.collection("reviews")
             .orderBy("timestamp", Query.Direction.DESCENDING)
             .addSnapshotListener { snapshots, error ->
@@ -295,9 +289,6 @@ class AdminDashboardActivity : BaseActivity() {
         }
     }
 
-    // =========================================================================
-    // SWITCH VIEW: BOOKING APPROVALS vs CUSTOMER VEHICLE REVIEWS
-    // =========================================================================
     private fun promptSwitchBookingsOrReviews(recyclerView: RecyclerView) {
         val options = arrayOf(
             "📋 Vehicle Bookings (${allBookingsList.size})",
@@ -324,9 +315,6 @@ class AdminDashboardActivity : BaseActivity() {
             .show()
     }
 
-    // =========================================================================
-    // ADMIN REPLY TO CUSTOMER REVIEW DIALOG
-    // =========================================================================
     private fun showReplyToReviewDialog(review: CarReview) {
         val input = EditText(this).apply {
             hint = "Type response to customer..."
@@ -403,7 +391,8 @@ class AdminDashboardActivity : BaseActivity() {
         )
 
         for (b in bookings) {
-            val day = dayFormat.format(Date(b.timestamp))
+            // FIX: Using timestampMillis which safely handles Date, Timestamp, or Long
+            val day = dayFormat.format(Date(b.timestampMillis))
             if (dayRevenueMap.containsKey(day)) {
                 dayRevenueMap[day] = dayRevenueMap[day]!! + b.totalPrice
             }
@@ -443,9 +432,6 @@ class AdminDashboardActivity : BaseActivity() {
         bar.layoutParams = params
     }
 
-    // =========================================================================
-    // INLINE ADAPTER FOR CUSTOMER CAR REVIEWS
-    // =========================================================================
     class AdminCarReviewsAdapter(
         private var reviews: List<CarReview>,
         private val onReplyClick: (CarReview) -> Unit,
